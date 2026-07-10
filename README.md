@@ -1,4 +1,4 @@
-# ตัวอย่างการวิเคราะห์ข้อมูลภาครัฐไทยด้วย Python
+# DGA306 (รุ่น 2) Group 7 Example
 
 ## โปรเจกต์นี้คืออะไร
 
@@ -8,15 +8,15 @@
 
 ---
 
-## เปิดดูผลลัพธ์อย่างรวดเร็ว
-
-- **อยากอ่านสรุปก่อน:** [รายงานสรุปโครงการ](reports/html/final_summary.html)
-- **อยากดูกราฟข้อมูล:** [รายงานข้อมูล interactive](reports/html/interactive_data_report.html)
-- **อยากดู ML baseline:** [รายงาน ML baseline](reports/html/ml_baseline_report.html)
-- **อยากดู code/notebook:** [โฟลเดอร์ notebooks](notebooks/)
-- **อยากดูแหล่งข้อมูล:** [docs/data_sources.md](docs/data_sources.md)
-- **อยากดูข้อจำกัด:** [docs/limitations.md](docs/limitations.md)
-- **อยากดูวิธีรัน:** [docs/how_to_run.md](docs/how_to_run.md)
+## ดูผลลัพธ์
+- **main** [html version](https://1-brain-cell.github.io/dga306-july2026-group7/)
+- **อ่านสรุป:** [รายงานสรุปโครงการ](reports/html/final_summary.html)
+- **ดูกราฟข้อมูล:** [รายงานข้อมูล interactive](reports/html/interactive_data_report.html)
+- **ดู ML baseline:** [รายงาน ML baseline](reports/html/ml_baseline_report.html)
+- **ดู code/notebook:** [โฟลเดอร์ notebooks](https://github.com/1-brain-cell/dga306-july2026-group7/tree/master/notebooks)
+- **รวมแหล่งข้อมูล:** [docs/data_sources.md](docs/data_sources.md)
+- **ข้อจำกัด:** [docs/limitations.md](docs/limitations.md)
+- **วิธีรัน:** [docs/how_to_run.md](docs/how_to_run.md)
 
 ---
 
@@ -91,7 +91,7 @@ Notebook ทุกไฟล์มี output ที่บันทึกไว้
 
 ---
 
-## ได้ข้อสรุปมาอย่างไร
+## ขั้นตอนการทำงาน
 
 โปรเจกต์นี้ทำงานตามขั้นตอนต่อไปนี้:
 
@@ -116,7 +116,7 @@ Notebook ทุกไฟล์มี output ที่บันทึกไว้
 
 ---
 
-## ส่วน ML ทำอะไร
+## ML ทำอะไร
 
 ### Clustering
 
