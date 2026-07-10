@@ -9,7 +9,7 @@
 ---
 
 ## ดูผลลัพธ์
-- **main** [pages version](https://1-brain-cell.github.io/dga306-july2026-group7/)
+- **main** [page](https://1-brain-cell.github.io/dga306-july2026-group7/)
 - **อ่านสรุป:** [รายงานสรุปโครงการ](reports/html/final_summary.html)
 - **ดูกราฟข้อมูล:** [รายงานข้อมูล interactive](reports/html/interactive_data_report.html)
 - **ดู ML baseline:** [รายงาน ML baseline](reports/html/ml_baseline_report.html)
