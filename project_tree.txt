@@ -1,0 +1,97 @@
+github_upload_clean/
+|-- README.md
+|-- Sarabun-Regular.ttf
+|-- data
+|   |-- processed
+|   |   |-- labai_demand_supply_cleaned.csv
+|   |   |-- labai_land_matching_cleaned.csv
+|   |__ |-- labai_landowners_cleaned.csv
+|   |__ raw
+|       |-- labai_land_matching.xlsx
+|       |-- labai_registered_land_demand_supply.json
+|       |-- labai_registered_landowners.json
+|       |-- sacit_craft_community_2564_2568.xlsx
+|       |__ sacit_craft_product_overview_2568.csv
+|-- docs
+|   |-- data_sources.md
+|   |-- how_to_run.md
+|   |__ limitations.md
+|-- notebooks
+|   |-- 01_dataset_discovery.ipynb
+|   |-- 02_schema_audit.ipynb
+|   |-- 03_labai_descriptive_diagnostic.ipynb
+|   |-- 04_labai_interactive_report.ipynb
+|   |-- 05_labai_predictive_baseline.ipynb
+|   |-- 06_labai_prescriptive_summary.ipynb
+|   |__ examples
+|       |-- 07_sacit_export_idea_example.ipynb
+|       |-- 08_sacit_community_idea_example.ipynb
+|       |__ 09_kpi_governance_conflict_idea_template.ipynb
+|-- reports
+|   |__ html
+|       |-- final_summary.html
+|       |-- interactive_data_report.html
+|       |__ ml_baseline_report.html
+|__ requirements.txt
+
+---
+
+Files excluded from this clean package (archived or omitted):
+
+  _archive/internal_docs/
+    - AGENTS.md
+    - changelog.md
+    - github-upload-manifest.md
+    - notebook-execution-report.md
+    - detailed-work-summary.md
+    - phase3-analysis-summary.md
+    - phase4-ml-summary.md
+    - phase4-plan.md
+    - final-review-checklist.md
+    - submission-package-guide.md
+    - review-guide.md
+    - interactive-report-notes.md
+    - notebook-structure-guide.md
+    - data-quality-notes.md
+    - data-source-provenance.md
+    - dataset-candidate-list.md
+    - feasibility-matrix.md
+    - project-ideas.md
+    - project-idea-gallery.py
+    - prescriptive-recommendations.md
+    - schema-audit-summary.md
+    - manual_download_instructions.md
+    - final-project-summary.md
+
+  _archive/jupytext_py_sources/
+    - 01_dataset_discovery.py
+    - 02_schema_audit.py
+    - 03_labai_descriptive_diagnostic.py
+    - 04_labai_interactive_report.py
+    - 05_labai_predictive_baseline.py
+    - 06_labai_prescriptive_summary.py
+    examples/
+    - 07_sacit_export_idea_example.py
+    - 08_sacit_community_idea_example.py
+    - 09_kpi_governance_conflict_idea_template.py
+
+  _archive/generated_figures/
+    - labai_demand_supply_gap.png
+    - labai_demand_supply_scatter.png
+    - labai_matching_observed_comparison.png
+    - labai_province_ranking_land_demand.png
+    - labai_province_ranking_land_supply.png
+    phase4/
+    - labai_phase4_classification_coefficients.png
+    - labai_phase4_classification_confusion_matrix.png
+    - labai_phase4_cluster_profile_heatmap.png
+    - labai_phase4_cluster_scatter.png
+    examples/
+    - sacit_community_count_by_region.png
+    - sacit_export_available_month_totals.png
+
+  _archive/html_reports/
+    - labai_final_summary_report.html
+    - labai_phase3_interactive_report.html
+    - labai_phase3_interactive_report_offline.html
+    - labai_phase4_ml_report.html

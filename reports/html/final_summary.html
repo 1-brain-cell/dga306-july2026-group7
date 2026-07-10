@@ -1,0 +1,438 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LABAI Final Summary Report</title>
+  <style>
+    @font-face {
+      font-family: "Sarabun";
+      src: url("../../Sarabun-Regular.ttf") format("truetype");
+      font-display: swap;
+    }
+    :root {
+      color: #1d2939;
+      background: #f7f8fa;
+      font-family: "Sarabun", system-ui, sans-serif;
+    }
+    body, h1, h2, h3, p, li, table, th, td, .notice, .metric, .metric-label, .metric-value, footer {
+      font-family: "Sarabun", system-ui, sans-serif;
+    }
+    body {
+      margin: 0;
+      background: #f7f8fa;
+      font-family: "Sarabun", system-ui, sans-serif;
+      line-height: 1.65;
+    }
+    main {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 32px 20px 48px;
+    }
+    header {
+      border-bottom: 3px solid #1976a1;
+      padding-bottom: 18px;
+      margin-bottom: 24px;
+    }
+    h1, h2, h3 {
+      color: #12374b;
+      font-family: "Sarabun", system-ui, sans-serif;
+      letter-spacing: 0;
+    }
+    h1 {
+      font-size: 30px;
+      margin: 0 0 6px;
+    }
+    h2 {
+      font-size: 22px;
+      border-bottom: 1px solid #d0d7de;
+      padding-bottom: 6px;
+      margin-top: 34px;
+    }
+    h3 {
+      font-size: 18px;
+      margin-bottom: 4px;
+    }
+    p, li {
+      font-size: 16px;
+    }
+    .lead {
+      margin: 0;
+      color: #475467;
+    }
+    .font-note {
+      color: #667085;
+      font-size: 14px;
+      margin: 10px 0 0;
+    }
+    .notice {
+      background: #eaf3f7;
+      border-left: 4px solid #1976a1;
+      padding: 12px 16px;
+      margin: 16px 0;
+    }
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 12px;
+      margin: 16px 0;
+    }
+    .metric {
+      background: #ffffff;
+      border: 1px solid #d0d7de;
+      border-radius: 6px;
+      padding: 14px;
+    }
+    .metric-label {
+      color: #475467;
+      font-size: 14px;
+    }
+    .metric-value {
+      color: #12374b;
+      font-size: 25px;
+      font-weight: 700;
+      margin-top: 2px;
+    }
+    .report-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0 20px;
+      background: #ffffff;
+      font-size: 14px;
+    }
+    .report-table th, .report-table td {
+      border: 1px solid #d0d7de;
+      padding: 9px;
+      text-align: left;
+      vertical-align: top;
+    }
+    .report-table th {
+      background: #eaf3f7;
+      color: #12374b;
+    }
+    .link-list {
+      padding-left: 20px;
+    }
+    a {
+      color: #075985;
+    }
+    footer {
+      border-top: 1px solid #d0d7de;
+      color: #667085;
+      font-size: 14px;
+      margin-top: 36px;
+      padding-top: 16px;
+    }
+    @media (max-width: 700px) {
+      main { padding: 20px 14px 32px; }
+      h1 { font-size: 25px; }
+      .report-table { display: block; overflow-x: auto; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>รายงานสรุปโครงการ LABAI</h1>
+      <p class="lead">สรุปข้อมูลที่สังเกตได้, baseline ML เพื่อการเรียนรู้, ข้อเสนอเชิงแนวทาง และข้อจำกัดของโครงการ</p>
+      <p class="font-note">รายงานใช้ Sarabun จาก `../../Sarabun-Regular.ttf` เมื่อเบราว์เซอร์เข้าถึงไฟล์ได้ หากเข้าถึงไม่ได้ รายงานจะใช้ system font เป็น fallback และยังคงอ่านเนื้อหาได้</p>
+    </header>
+
+    <section>
+      <h2>ภาพรวมโครงการ</h2>
+      <p>โครงการนี้ใช้ข้อมูลสาธารณะของสถาบันบริหารจัดการธนาคารที่ดินเพื่อสาธิต workflow ตั้งแต่ค้นหาชุดข้อมูล ตรวจ schema ทำความสะอาด วิเคราะห์เชิงพรรณนาและเชิงวินิจฉัย ไปจนถึง baseline ML และข้อเสนอสำหรับการเก็บข้อมูลต่อไป</p>
+      <div class="notice">ผลของข้อมูลและ model ในรายงานนี้มีไว้เพื่อการเรียนรู้และตรวจประเด็นข้อมูลต่อ ไม่ใช้จัดอันดับ ตัดสิน หรือกำหนดการดำเนินงานจริงของจังหวัด</div>
+    </section>
+
+    <section>
+      <h2>ลำดับการทำงานจากข้อมูลดิบสู่ข้อเสนอ</h2>
+      <table border="1" class="dataframe report-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>ขั้นตอน</th>
+      <th>รายละเอียด</th>
+      <th>สถานะ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ค้นหาและคัดเลือกชุดข้อมูล</td>
+      <td>ค้นหาและลงทะเบียน candidate datasets ของ LABAI, SACIT และ KPI พร้อม URL ทางการ</td>
+      <td>เสร็จสิ้น</td>
+    </tr>
+    <tr>
+      <td>ดาวน์โหลดและตรวจโครงสร้างข้อมูล</td>
+      <td>ดาวน์โหลดไฟล์ที่เข้าถึงได้และตรวจ schema จริงจากไฟล์ที่อ่านได้</td>
+      <td>เสร็จสิ้น</td>
+    </tr>
+    <tr>
+      <td>ทำความสะอาดและวิเคราะห์ข้อมูล</td>
+      <td>ทำ cleaning, วิเคราะห์เชิงพรรณนาและวินิจฉัย และสร้าง processed CSV</td>
+      <td>เสร็จสิ้น</td>
+    </tr>
+    <tr>
+      <td>สร้างรายงานอ่านง่ายและกราฟ interactive</td>
+      <td>สร้างรายงาน interactive ด้วย Plotly สำหรับดูค่ารายจังหวัด</td>
+      <td>เสร็จสิ้น</td>
+    </tr>
+    <tr>
+      <td>ทดลอง ML เบื้องต้น</td>
+      <td>ทดลอง clustering และ classification baseline ภายใต้ข้อจำกัดของข้อมูล</td>
+      <td>เสร็จสิ้น</td>
+    </tr>
+    <tr>
+      <td>สรุปข้อเสนอและข้อจำกัด</td>
+      <td>สรุปข้อเสนอเชิงแนวทาง, ข้อจำกัด และจัดทำ notebook นี้</td>
+      <td>เสร็จสิ้น</td>
+    </tr>
+  </tbody>
+</table>
+    </section>
+
+    <section>
+      <h2>แหล่งข้อมูลที่ใช้</h2>
+      <table border="1" class="dataframe report-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>ชุดข้อมูล</th>
+      <th>แหล่งข้อมูลทางการ</th>
+      <th>บทบาทในโครงการ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>จำนวนผู้ประสงค์ใช้ที่ดินและเจ้าของที่ดินที่ลงทะเบียน</td>
+      <td>https://data.go.th/dataset/65_dataset_11_03</td>
+      <td>ข้อมูลหลักสำหรับการวิเคราะห์และการทดลองโมเดล baseline</td>
+    </tr>
+    <tr>
+      <td>ข้อมูลการจับคู่ที่ดิน</td>
+      <td>https://data.go.th/dataset/65_dataset_21_01</td>
+      <td>ใช้ตรวจข้อจำกัดของค่า placeholder</td>
+    </tr>
+    <tr>
+      <td>จำนวนเจ้าของที่ดินที่ลงทะเบียน</td>
+      <td>https://data.go.th/dataset/65_dataset_11_01</td>
+      <td>ใช้ตรวจความสอดคล้องของจำนวนเจ้าของที่ดิน</td>
+    </tr>
+  </tbody>
+</table>
+    </section>
+
+    <section>
+      <h2>ผลที่สังเกตได้จาก cleaned data</h2>
+      <p>ตัวเลขต่อไปนี้มาจากไฟล์ `labai_demand_supply_cleaned.csv` จำนวน 77 แถวที่ดาวน์โหลดในรอบโครงการนี้</p>
+      <div class="metric-grid">
+        <div class="metric"><div class="metric-label">ผลรวมผู้ประสงค์ใช้ที่ดิน</div><div class="metric-value">1,371</div></div>
+        <div class="metric"><div class="metric-label">ผลรวมเจ้าของที่ดิน</div><div class="metric-value">80</div></div>
+        <div class="metric"><div class="metric-label">ส่วนต่างมากกว่าศูนย์</div><div class="metric-value">68</div></div>
+        <div class="metric"><div class="metric-label">Pearson correlation</div><div class="metric-value">0.466</div></div>
+      </div>
+      <table border="1" class="dataframe report-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>ตัวชี้วัด</th>
+      <th>ค่า</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>จำนวนแถว</td>
+      <td>77</td>
+    </tr>
+    <tr>
+      <td>ผลรวมผู้ประสงค์ใช้ที่ดิน</td>
+      <td>1371</td>
+    </tr>
+    <tr>
+      <td>ผลรวมเจ้าของที่ดิน</td>
+      <td>80</td>
+    </tr>
+  </tbody>
+</table>
+      <table border="1" class="dataframe report-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>กลุ่มส่วนต่างเชิงคำนวณ</th>
+      <th>จำนวนแถว</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>มากกว่าศูนย์</td>
+      <td>68</td>
+    </tr>
+    <tr>
+      <td>น้อยกว่าศูนย์</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>เท่ากับศูนย์</td>
+      <td>6</td>
+    </tr>
+  </tbody>
+</table>
+      <table border="1" class="dataframe report-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>ตัวชี้วัด</th>
+      <th>ค่า</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Pearson correlation ระหว่างจำนวนผู้ประสงค์และเจ้าของที่ดิน</td>
+      <td>0.466</td>
+    </tr>
+  </tbody>
+</table>
+      <p>ส่วนต่างเป็นผลคำนวณจากสอง column และ correlation เป็นความสัมพันธ์เชิงเส้นของไฟล์นี้เท่านั้น จึงไม่ใช้บอกสาเหตุ คุณภาพ หรือความเร่งด่วนเชิงนโยบาย</p>
+    </section>
+
+    <section>
+      <h2>สรุปการทดลอง ML เบื้องต้น</h2>
+      <p>ตารางนี้อ้างอิงผลการทดลองที่บันทึกไว้แล้วจากการรันโมเดล baseline โดยไม่มีการฝึก model หรือคำนวณ metric ซ้ำในรายงานสรุปนี้</p>
+      <table border="1" class="dataframe report-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>งาน</th>
+      <th>วิธีที่บันทึกไว้</th>
+      <th>หลักฐานที่บันทึกไว้</th>
+      <th>ข้อควรตีความ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Clustering</td>
+      <td>KMeans หลัง StandardScaler, เลือก k=3 เพื่อสาธิตการอ่าน profile</td>
+      <td>silhouette ของ k=3 เท่ากับ 0.6751, ขนาดกลุ่ม 15, 60 และ 2 แถว</td>
+      <td>ใช้เพื่อเลือกประเด็นตรวจ metadata และคุณภาพข้อมูลเพิ่ม ไม่ใช่การจัดระดับจังหวัด</td>
+    </tr>
+    <tr>
+      <td>Classification</td>
+      <td>Logistic Regression ของ derived label high_gap</td>
+      <td>split เดียว 20 แถว: accuracy 0.850, precision 0.625, recall 1.000, F1 0.769</td>
+      <td>label ไม่ใช่สถานะทางการ และ metric ไม่ใช่ผลยืนยันการใช้งานจริง</td>
+    </tr>
+    <tr>
+      <td>Regression</td>
+      <td>ไม่ดำเนินการ</td>
+      <td>ข้ามเพราะความเหมาะสมของ feature กับ target และความเสี่ยง leakage ยังไม่ยืนยัน</td>
+      <td>ไม่ควรตีความว่าไม่มีความเป็นไปได้ในอนาคต</td>
+    </tr>
+  </tbody>
+</table>
+    </section>
+
+    <section>
+      <h2>ข้อเสนอจากผลวิเคราะห์</h2>
+      <p>ข้อเสนอเน้นการยืนยัน metadata และเพิ่มความพร้อมของข้อมูลก่อนขยายการวิเคราะห์หรือประยุกต์ใช้ model</p>
+      <table border="1" class="dataframe report-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>หมวด</th>
+      <th>หลักฐานจากโครงการ</th>
+      <th>ข้อเสนอ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ธรรมาภิบาลข้อมูล</td>
+      <td>นิยามของ count, area และช่วงเวลายังยืนยันไม่ได้ครบจาก metadata ที่ใช้</td>
+      <td>จัดทำ data dictionary, owner ของข้อมูล, วันที่อ้างอิง และกติกาการปรับปรุงข้อมูลให้ตรวจย้อนกลับได้</td>
+    </tr>
+    <tr>
+      <td>คุณภาพข้อมูล</td>
+      <td>ข้อมูลการจับคู่มีค่า placeholder '-' ใน 70 จาก 77 แถว</td>
+      <td>กำหนดรหัส missing หรือสถานะของ '-' อย่างเป็นทางการ แล้วเก็บค่าและเหตุผลแยกจากศูนย์</td>
+    </tr>
+    <tr>
+      <td>การวิเคราะห์</td>
+      <td>ข้อมูลปัจจุบันไม่มี column เวลา และส่วนต่างเป็นผลคำนวณจากจำนวนสอง field</td>
+      <td>เก็บ snapshot ตามเวลาและตรวจหน่วยพื้นที่ก่อนใช้ทำ trend, rate หรือ forecasting</td>
+    </tr>
+    <tr>
+      <td>ความพร้อมสำหรับ ML</td>
+      <td>มีเพียง 77 แถวและพบ outlier หลาย field ในขั้นตอนการทดลองโมเดล baseline</td>
+      <td>ใช้ cluster เป็นสัญญาณเลือกประเด็นตรวจเพิ่ม, สร้าง label จากนิยามที่อนุมัติ และเพิ่มตัวแปรอธิบายก่อนทำ model ใหม่</td>
+    </tr>
+    <tr>
+      <td>การต่อยอดชุดข้อมูล</td>
+      <td>มีแนวคิด LABAI, SACIT และ KPI ที่ยังไม่ได้ดำเนินการในรายงานนี้</td>
+      <td>ตรวจ schema และเงื่อนไขการเข้าถึงของ SACIT และ KPI ก่อนต่อยอดเป็นแผนที่ แนวโน้ม หรือข้อมูลเชิงข้อความ</td>
+    </tr>
+  </tbody>
+</table>
+    </section>
+
+    <section>
+      <h2>ข้อจำกัดที่ต้องคงไว้ในการตีความ</h2>
+      <table border="1" class="dataframe report-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>ข้อจำกัด</th>
+      <th>ผลต่อการใช้งาน</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ข้อมูลหลักมี 77 แถวระดับจังหวัด</td>
+      <td>ไม่ควรใช้เปรียบเทียบหรือตัดสินเชิงนโยบาย</td>
+    </tr>
+    <tr>
+      <td>ไม่มี column เวลาในไฟล์หลัก</td>
+      <td>ไม่สามารถทำ forecasting ที่มีความหมายจากไฟล์นี้เพียงชุดเดียว</td>
+    </tr>
+    <tr>
+      <td>ค่า '-' ในข้อมูลการจับคู่ยังไม่ยืนยันความหมาย</td>
+      <td>ไม่ควรคำนวณอัตราการจับคู่หรือใช้เป็น target</td>
+    </tr>
+    <tr>
+      <td>หน่วยและวิธีรวม area fields ยังไม่ยืนยัน</td>
+      <td>ไม่ควรรวมหรือเปรียบเทียบพื้นที่จนกว่าจะยืนยัน metadata</td>
+    </tr>
+    <tr>
+      <td>high_gap เป็น label ที่สร้างจาก quantile ไม่ใช่สถานะทางการ</td>
+      <td>ไม่ควรใช้เป็นผลลัพธ์ทางธุรการ</td>
+    </tr>
+    <tr>
+      <td>clustering เป็นการสำรวจ pattern เบื้องต้น</td>
+      <td>ไม่ใช่การแบ่งระดับความเสี่ยงหรือศักยภาพ</td>
+    </tr>
+    <tr>
+      <td>classification เป็น baseline เพื่อการเรียนรู้จาก split เดียว</td>
+      <td>ไม่ใช่ค่าประสิทธิภาพที่ยืนยันการใช้งานจริง</td>
+    </tr>
+    <tr>
+      <td>ข้าม regression เพราะ feature-target suitability และความเสี่ยง leakage</td>
+      <td>ไม่ควรสรุปว่าการพยากรณ์เหมาะสมหรือไม่เหมาะสมอย่างเด็ดขาด</td>
+    </tr>
+  </tbody>
+</table>
+    </section>
+
+    <section>
+      <h2>แนวคิดต่อยอดจากชุดข้อมูลอื่น</h2>
+      <p>แนวคิดต่อไปนี้เป็นตัวเลือกจาก `docs/project-idea-gallery.md` ยังไม่ใช่งานที่ดำเนินการในรายงาน LABAI ปัจจุบัน</p>
+      <ul>
+        <li><strong>LABAI:</strong> เมื่อยืนยันสถานะข้อมูลการจับคู่แล้ว สามารถทบทวน funnel และสำรวจความต้องการกับจำนวนเจ้าของที่ดินตามช่วงเวลาได้</li>
+        <li><strong>SACIT:</strong> ชุดข้อมูลการส่งออกและชุมชนหัตถกรรมอาจรองรับ trend, map และ forecasting baseline เมื่อมีช่วงเวลาและ schema จริงที่เพียงพอ</li>
+        <li><strong>KPI:</strong> ข้อมูล governance, conflict และ peace อาจใช้ทำ dashboard หรือ map ได้หลังตรวจ resource, เงื่อนไขการเข้าถึง และนิยามตัวชี้วัด</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>รายงานและเอกสารสำหรับทบทวน</h2>
+      <ul class="link-list">
+        <li><a href="interactive_data_report.html">รายงาน interactive แบบ offline</a></li>
+        <li><a href="ml_baseline_report.html">รายงานการทดลอง ML เบื้องต้น</a></li>
+        <li>สรุปโครงการ: อ่านได้ใน README.md ของ github_upload_clean</li>
+        <li>ข้อเสนอเชิงแนวทาง: ดูได้ใน notebook 06 ส่วน prescriptive summary</li>
+        <li>วิธีรัน notebook: ดูที่ docs/how_to_run.md</li>
+      </ul>
+    </section>
+
+    <footer>สร้างจาก cleaned output และเอกสารประกอบโครงการ, วันที่อ้างอิงไฟล์ที่ดาวน์โหลด: 2026-07-10</footer>
+  </main>
+</body>
+</html>
