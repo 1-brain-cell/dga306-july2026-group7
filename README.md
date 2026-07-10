@@ -8,6 +8,18 @@
 
 ---
 
+## เปิดดูผลลัพธ์อย่างรวดเร็ว
+
+- **อยากอ่านสรุปก่อน:** [รายงานสรุปโครงการ](reports/html/final_summary.html)
+- **อยากดูกราฟข้อมูล:** [รายงานข้อมูล interactive](reports/html/interactive_data_report.html)
+- **อยากดู ML baseline:** [รายงาน ML baseline](reports/html/ml_baseline_report.html)
+- **อยากดู code/notebook:** [โฟลเดอร์ notebooks](notebooks/)
+- **อยากดูแหล่งข้อมูล:** [docs/data_sources.md](docs/data_sources.md)
+- **อยากดูข้อจำกัด:** [docs/limitations.md](docs/limitations.md)
+- **อยากดูวิธีรัน:** [docs/how_to_run.md](docs/how_to_run.md)
+
+---
+
 ## ใช้ข้อมูลอะไร
 
 ### ข้อมูลหลัก: LABAI
@@ -57,9 +69,9 @@ Notebook ทุกไฟล์มี output ที่บันทึกไว้
 
 > [!NOTE]
 > **ข้อแนะนำในการอ่านรายงาน HTML:**
-> - ระบบแสดงผลของ GitHub อาจแสดงไฟล์ HTML เหล่านี้เป็นซอร์สโค้ด (Source Code) แทนที่จะเรนเดอร์เป็นหน้าเว็บตามปกติ
-> - เพื่อให้เห็นรายงานที่สวยงามและถูกต้อง **กรุณาดาวน์โหลด (Download) ไฟล์ HTML ลงเครื่องคอมพิวเตอร์ของคุณ แล้วเปิดอ่านด้วยเว็บเบราว์เซอร์หลัก (เช่น Chrome, Edge, Safari) โดยตรง**
-> - ในอนาคต หากคุณต้องการนำรายงานเหล่านี้ไปเผยแพร่ สามารถเปิดใช้งานฟังก์ชัน GitHub Pages สำหรับโฟลเดอร์ `reports/html/` นี้ได้
+> - หากเปิดผ่าน GitHub Pages สามารถเปิดรายงาน HTML เป็นหน้าเว็บได้โดยตรง
+> - หากเปิดจาก file browser ของ GitHub ระบบอาจแสดงซอร์สโค้ด HTML แทนการเรนเดอร์หน้าเว็บ
+> - กรณีนั้นให้ดาวน์โหลดไฟล์ HTML แล้วเปิดด้วยเว็บเบราว์เซอร์ เช่น Chrome, Edge หรือ Safari
 
 ---
 

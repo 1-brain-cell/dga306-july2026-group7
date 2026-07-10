@@ -1,6 +1,7 @@
 github_upload_clean/
 |-- README.md
 |-- Sarabun-Regular.ttf
+|-- requirements.txt
 |-- data
 |   |-- processed
 |   |   |-- labai_demand_supply_cleaned.csv
@@ -32,7 +33,6 @@ github_upload_clean/
 |       |-- final_summary.html
 |       |-- interactive_data_report.html
 |       |__ ml_baseline_report.html
-|__ requirements.txt
 
 ---
 
@@ -62,6 +62,8 @@ Files excluded from this clean package (archived or omitted):
     - schema-audit-summary.md
     - manual_download_instructions.md
     - final-project-summary.md
+    - github_upload_final-limitations.md
+    - github_upload_how-to-run.md
 
   _archive/jupytext_py_sources/
     - 01_dataset_discovery.py
@@ -95,3 +97,4 @@ Files excluded from this clean package (archived or omitted):
     - labai_phase3_interactive_report.html
     - labai_phase3_interactive_report_offline.html
     - labai_phase4_ml_report.html
+    - github_upload_labai_phase3_interactive_report.html
